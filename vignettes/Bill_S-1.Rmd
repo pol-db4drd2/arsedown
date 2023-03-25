@@ -1,0 +1,44 @@
+---
+title: Memo Title
+author: Your Name
+date: '`r Sys.Date()`'
+output:
+  arsedown::pdf_memo:
+    smolhead: true
+    keep_md: true
+    keep_tex: true
+    number_sections: false
+    toc: false
+    toc_depth: 2
+    self_contained: false
+fontfamily: fourier
+fontsize: 11pt
+geometry: top=0.55in, bottom=0.55in, left=0.65in, right=0.65in
+subparagraph: true
+linkcolor: blue
+csl: '`r arsedown::space_csl()`'
+knit: (function(input_file, encoding, ...) {rmarkdown::render(input_file, encoding=encoding,
+  output_dir=getwd(), clean=FALSE)})
+vignette: "%\\VignetteIndexEntry{An act relating to Railways} \n    %\\VignetteEngine{knitr::rmarkdown}
+  \n    %\\VignetteEncoding{UTF-8})"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  fig.width       = 7,
+  fig.height      = 4,
+  fig.pos         = "!b",
+  fig.align       = "center",
+  dev             = "png",
+  dpi             = 300,
+  out.extra       = "",
+  eval            = TRUE,
+  echo            = FALSE,
+  include         = FALSE,
+  message         = FALSE,
+  warning         = FALSE,
+  error           = FALSE,
+  progress        = FALSE,
+  results         = "asis"
+)
+```

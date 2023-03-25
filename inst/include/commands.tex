@@ -1,0 +1,47 @@
+% general commands
+\newcommand{\nl}{\newline} % 2022-10-22: how useful was this short command ever? should \clearpage become \cp? or should this go away?
+
+% layout commands
+\newcommand{\blandscape}{\begin{landscape}}
+\newcommand{\elandscape}{\end{landscape}}
+\newcommand{\blimp}{\begin{minipage}{\linewidth}} % not sure when needed
+\newcommand{\elimp}{\end{minipage}}
+\newcommand{\bhp}{\begin{minipage}{0.5\textwidth}} % useful with two-column sections
+\newcommand{\ehp}{\end{minipage}}
+
+% column commands
+\newcommand{\bmCccc}{\begin{multicols*}{4}}
+\newcommand{\bmCcc}{\begin{multicols*}{3}}
+\newcommand{\bmCc}{\begin{multicols*}{2}}
+\newcommand{\bmcccc}{\begin{multicols}{4}}
+\newcommand{\bmccc}{\begin{multicols}{3}}
+\newcommand{\bmcc}{\begin{multicols}{2}}
+\newcommand{\emc}{\end{multicols}}
+\newcommand{\emC}{\end{multicols*}}
+
+% table commands
+\newcolumntype{d}{{D{.}{.}{-1}}}
+
+\newcommand{\ztab}{\setlength{\tabcolsep}{0pt}} % 2022-10-22: TODO: find and make use of paper's default tabcolsep value
+\newcommand{\ntab}{\setlength{\tabcolsep}{1pt}}
+\newcommand{\ttab}{\setlength{\tabcolsep}{2pt}}
+\newcommand{\utab}{\setlength{\tabcolsep}{6pt}}
+
+% 2022-10-22: TODO: play with args to footable till it doesn't lose, then break out to its own file to enable it with a pdf_memo arg?
+\newenvironment{footable}[2][0]{\ztab\centering\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}#2}}{\end{tabular*}}
+
+\newcommand{\ltotab}{\renewcommand{\longtable}{\tabular}} % 2022-10-22: these all lose, don't use until improved
+\newcommand{\eltotab}{\renewcommand{\endlongtable}{\endtabular}}
+\newcommand{\longtofoo}{\renewenvironment{longtable}{\ztab\begin{center}\begin{footable}}{\end{footable}\end{center}\utab}} % dont use?
+\newcommand{\ehtobr}{\let\endhead\bottomrule} % always use with \longtofoo
+
+% toc commands
+% 2022-10-22: no recollection of what any of these were for
+\newcommand{\eitc}{\etocsetnexttocdepth{1}\etocsettocstyle{}{}\tableofcontents}
+\newcommand{\ejtc}{\etocsetnexttocdepth{2}\etocsettocstyle{}{}\tableofcontents}
+\newcommand{\ektc}{\etocsetnexttocdepth{3}\etocsettocstyle{}{}\tableofcontents}
+\newcommand{\eltc}{\etocsetnexttocdepth{4}\etocsettocstyle{}{}\tableofcontents}
+\newcommand{\eptc}{\addtocontents{toc}{\cftpagenumbersoff{section}}}
+\newcommand{\eotc}{\addtocontents{toc}{\cftpagenumbersoff{subsection}}}
+\newcommand{\entc}{\addtocontents{toc}{\cftpagenumbersoff{subsubsection}}}
+\newcommand{\emtc}{\addtocontents{toc}{\cftpagenumbersoff{paragraph}}}

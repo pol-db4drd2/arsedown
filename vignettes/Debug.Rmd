@@ -1,0 +1,22 @@
+---
+title: "Debug"
+output: 
+  arsedown::pdf_memo:
+    keep_md: true
+    keep_tex: true
+vignette: >
+  %\VignetteIndexEntry{Debug}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE, purl=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, purl = FALSE}
+library(arsedown)
+```

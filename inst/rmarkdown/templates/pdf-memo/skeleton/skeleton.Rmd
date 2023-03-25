@@ -1,0 +1,43 @@
+---
+title: "Memo Title"
+author: "Your Name"
+date: "`r Sys.Date()`"
+output:
+  arsedown::pdf_memo:
+    smolhead:         true
+    keep_md:          true
+    keep_tex:         true
+    number_sections: false
+    toc:             false
+    toc_depth:           2
+    self_contained:     no
+fontfamily: fourier
+fontsize: 11pt # or try 10pt and `geometry: margin=1in`
+geometry: top=0.55in, bottom=0.55in, left=0.65in, right=0.65in
+subparagraph: true
+linkcolor: blue
+bibliography:
+  - "`r system.file('include', 'arsenoff.bib', package = 'arsedown')`"
+csl: "`r arsedown::space_csl()`"
+knit: (function(input_file, encoding, ...) {rmarkdown::render(input_file, encoding=encoding, output_dir=getwd(), clean=FALSE)})
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  fig.width       = 7,
+  fig.height      = 4,
+  fig.pos         = "!b",
+  fig.align       = "center",
+  dev             = "png",
+  dpi             = 300,
+  out.extra       = "",
+  eval            = TRUE,
+  echo            = FALSE,
+  include         = FALSE,
+  message         = FALSE,
+  warning         = FALSE,
+  error           = FALSE,
+  progress        = FALSE,
+  results         = "asis"
+)
+```

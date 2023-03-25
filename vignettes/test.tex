@@ -1,0 +1,245 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage[]{fourier}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[top=0.55in, bottom=0.55in, left=0.65in, right=0.65in]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+% standard package complement
+\usepackage{dcolumn}
+\usepackage{pdflscape}
+\usepackage{supertabular}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{nameref}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{etoc}
+\usepackage{stringstrings}
+\usepackage{environ}
+\usepackage[explicit]{titlesec}
+\usepackage[normalem]{ulem}
+% general commands
+\newcommand{\nl}{\newline} % 2022-10-22: how useful was this short command ever? should \clearpage become \cp? or should this go away?
+
+% layout commands
+\newcommand{\blandscape}{\begin{landscape}}
+\newcommand{\elandscape}{\end{landscape}}
+\newcommand{\blimp}{\begin{minipage}{\linewidth}} % not sure when needed
+\newcommand{\elimp}{\end{minipage}}
+\newcommand{\bhp}{\begin{minipage}{0.5\textwidth}} % useful with two-column sections
+\newcommand{\ehp}{\end{minipage}}
+
+% column commands
+\newcommand{\bmCccc}{\begin{multicols*}{4}}
+\newcommand{\bmCcc}{\begin{multicols*}{3}}
+\newcommand{\bmCc}{\begin{multicols*}{2}}
+\newcommand{\bmcccc}{\begin{multicols}{4}}
+\newcommand{\bmccc}{\begin{multicols}{3}}
+\newcommand{\bmcc}{\begin{multicols}{2}}
+\newcommand{\emc}{\end{multicols}}
+\newcommand{\emC}{\end{multicols*}}
+
+% table commands
+\newcolumntype{d}{{D{.}{.}{-1}}}
+
+\newcommand{\ztab}{\setlength{\tabcolsep}{0pt}} % 2022-10-22: TODO: find and make use of paper's default tabcolsep value
+\newcommand{\ntab}{\setlength{\tabcolsep}{1pt}}
+\newcommand{\ttab}{\setlength{\tabcolsep}{2pt}}
+\newcommand{\utab}{\setlength{\tabcolsep}{6pt}}
+
+% 2022-10-22: TODO: play with args to footable till it doesn't lose, then break out to its own file to enable it with a pdf_memo arg?
+\newenvironment{footable}[2][0]{\ztab\centering\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}#2}}{\end{tabular*}}
+
+\newcommand{\ltotab}{\renewcommand{\longtable}{\tabular}} % 2022-10-22: these all lose, don't use until improved
+\newcommand{\eltotab}{\renewcommand{\endlongtable}{\endtabular}}
+\newcommand{\longtofoo}{\renewenvironment{longtable}{\ztab\begin{center}\begin{footable}}{\end{footable}\end{center}\utab}} % dont use?
+\newcommand{\ehtobr}{\let\endhead\bottomrule} % always use with \longtofoo
+
+% toc commands
+% 2022-10-22: no recollection of what any of these were for
+\newcommand{\eitc}{\etocsetnexttocdepth{1}\etocsettocstyle{}{}\tableofcontents}
+\newcommand{\ejtc}{\etocsetnexttocdepth{2}\etocsettocstyle{}{}\tableofcontents}
+\newcommand{\ektc}{\etocsetnexttocdepth{3}\etocsettocstyle{}{}\tableofcontents}
+\newcommand{\eltc}{\etocsetnexttocdepth{4}\etocsettocstyle{}{}\tableofcontents}
+\newcommand{\eptc}{\addtocontents{toc}{\cftpagenumbersoff{section}}}
+\newcommand{\eotc}{\addtocontents{toc}{\cftpagenumbersoff{subsection}}}
+\newcommand{\entc}{\addtocontents{toc}{\cftpagenumbersoff{subsubsection}}}
+\newcommand{\emtc}{\addtocontents{toc}{\cftpagenumbersoff{paragraph}}}
+\titleformat{\section}{\normalsize\bfseries}{\thesection}{1em}{\uline{#1}}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{#1}
+\titleformat{\subsubsection}{\normalsize\itshape}{\thesubsubsection}{1em}{\uline{#1}}
+\titleformat{\paragraph}[runin]{\normalsize}{\theparagraph}{1em}{\uline{#1}}
+\titleformat{\subparagraph}[runin]{\normalsize\itshape}{\thesubparagraph}{1em}{{#1}.}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={test},
+  pdfauthor={Gordon Arsenoff},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{test}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{(20) Texas 34 (11) Oklahoma St 41}
+\author{Gordon Arsenoff}
+\date{2022-10-31}
+
+\begin{document}
+\maketitle
+
+\hypertarget{foo}{%
+\section{Foo}\label{foo}}
+
+(King, Tomz, and Wittenberg 2000)
+
+Campbell et al. (1960)
+
+\hypertarget{bar}{%
+\subsection{Bar}\label{bar}}
+
+\hypertarget{superman}{%
+\subsubsection{Superman}\label{superman}}
+
+\hypertarget{batman}{%
+\subsubsection{Batman}\label{batman}}
+
+\hypertarget{baz}{%
+\subsection{Baz}\label{baz}}
+
+\hypertarget{captain-america}{%
+\subsubsection{Captain America}\label{captain-america}}
+
+\hypertarget{the-first-avenger}{%
+\paragraph{The First Avenger}\label{the-first-avenger}}
+
+This is paragraph-level text.
+
+\hypertarget{the-winter-soldier}{%
+\paragraph{The Winter Soldier}\label{the-winter-soldier}}
+
+\hypertarget{lorem-ipsum}{%
+\subparagraph{Lorem ipsum}\label{lorem-ipsum}}
+
+This is subparagraph-level text.
+
+\hypertarget{dolor-sit-amet}{%
+\subparagraph{Dolor sit amet}\label{dolor-sit-amet}}
+
+\hypertarget{iron-man}{%
+\subsubsection{Iron Man}\label{iron-man}}
+
+\hypertarget{quux}{%
+\section{Quux}\label{quux}}
+
+\clearpage
+
+\hypertarget{references}{%
+\section*{References}\label{references}}
+\addcontentsline{toc}{section}{References}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{1}{2}
+\leavevmode\vadjust pre{\hypertarget{ref-campbelletal1960}{}}%
+Campbell, Angus, Philip E. Converse, Warren E. Miller, and Donald E. Stokes. 1960. \emph{The American Voter}. University of Chicago Press.
+
+\leavevmode\vadjust pre{\hypertarget{ref-kingtomzwittenberg2000}{}}%
+King, Gary, Michael Tomz, and Jason Wittenberg. 2000. {``Making the Most of Statistical Analysies: Improving Interpretation and Presentation.''} \emph{American Journal of Political Science} 44(2): 341--55. \url{http://www.jstor.org/stable/2669316}.
+
+\end{CSLReferences}
+
+\end{document}
