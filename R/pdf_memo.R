@@ -13,7 +13,10 @@ pdf_memo <- function(
     includes = list(
       in_header = c(
         if(TRUE)     {system.file("include", "packages.tex", package = "arsedown")},
-        if(TRUE)     {system.file("include", "commands.tex", package = "arsedown")},
+        if(TRUE)     {system.file("include", "commands_1_layout.tex", package = "arsedown")},
+        if(TRUE)     {system.file("include", "commands_2_column.tex", package = "arsedown")},
+        if(TRUE)     {system.file("include", "commands_3_table.tex",  package = "arsedown")},
+        if(TRUE)     {system.file("include", "commands_4_toc.tex",    package = "arsedown")},
         if(smolhead) {system.file("include", "smolhead.tex", package = "arsedown")}
       )
     ),

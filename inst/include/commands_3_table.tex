@@ -1,0 +1,15 @@
+% table commands
+\newcolumntype{d}{{D{.}{.}{-1}}}
+
+\newcommand{\ztab}{\setlength{\tabcolsep}{0pt}} % 2022-10-22: TODO: find and make use of paper's default tabcolsep value
+\newcommand{\ntab}{\setlength{\tabcolsep}{1pt}}
+\newcommand{\ttab}{\setlength{\tabcolsep}{2pt}}
+\newcommand{\utab}{\setlength{\tabcolsep}{6pt}}
+
+% 2022-10-22: TODO: play with args to footable till it doesn't lose, then break out to its own file to enable it with a pdf_memo arg?
+\newenvironment{footable}[2][0]{\ztab\centering\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}#2}}{\end{tabular*}}
+
+\newcommand{\ltotab}{\renewcommand{\longtable}{\tabular}} % 2022-10-22: these all lose, don't use until improved
+\newcommand{\eltotab}{\renewcommand{\endlongtable}{\endtabular}}
+\newcommand{\longtofoo}{\renewenvironment{longtable}{\ztab\begin{center}\begin{footable}}{\end{footable}\end{center}\utab}} % dont use?
+\newcommand{\ehtobr}{\let\endhead\bottomrule} % always use with \longtofoo

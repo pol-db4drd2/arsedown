@@ -1,0 +1,15 @@
+% toc commands
+% 2022-10-22: no recollection of what any of these were for
+\newcommand{\eitc}{\etocsetnexttocdepth{1}\etocsettocstyle{}{}\tableofcontents}
+\newcommand{\ejtc}{\etocsetnexttocdepth{2}\etocsettocstyle{}{}\tableofcontents}
+\newcommand{\ektc}{\etocsetnexttocdepth{3}\etocsettocstyle{}{}\tableofcontents}
+\newcommand{\eltc}{\etocsetnexttocdepth{4}\etocsettocstyle{}{}\tableofcontents}
+\newcommand{\eptc}{\addtocontents{toc}{\cftpagenumbersoff{section}}}
+\newcommand{\eotc}{\addtocontents{toc}{\cftpagenumbersoff{subsection}}}
+\newcommand{\entc}{\addtocontents{toc}{\cftpagenumbersoff{subsubsection}}}
+\newcommand{\emtc}{\addtocontents{toc}{\cftpagenumbersoff{paragraph}}}
+
+% math commands?
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\B}{\mathrm{B}}
+\newcommand{\V}{\mathrm{Var}}
