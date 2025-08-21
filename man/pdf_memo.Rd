@@ -2,12 +2,14 @@
 % Please edit documentation in R/pdf_memo.R
 \name{pdf_memo}
 \alias{pdf_memo}
-\title{wrapper for \code{bookdown::\link[bookdown]{pdf_book}} with Gordon Arsenoff's defaults}
+\title{wrapper for `bookdown::\link[bookdown]{pdf_book}` with Gordon Arsenoff's defaults}
 \usage{
-pdf_memo(smolhead = TRUE, ...)
+pdf_memo(smolhead = TRUE, smolcaps = TRUE, ...)
 }
 \arguments{
-\item{smolhead}{\code{logical}. Smaller-sized headings?   Default \code{TRUE} (\code{FALSE} gives regular LaTeX headings).}
+\item{smolhead}{\code{logical}. Smaller-sized headings? Default `TRUE`.}
+
+\item{smolcaps}{\code{logical}. Small-caps internal references? Default `TRUE`.}
 
 \item{...}{Other arguments to be passed to \code{base_format}.}
 }
@@ -15,5 +17,5 @@ pdf_memo(smolhead = TRUE, ...)
 whatever \code{pdf_book} does
 }
 \description{
-wrapper for \code{bookdown::\link[bookdown]{pdf_book}} with Gordon Arsenoff's defaults
+wrapper for `bookdown::\link[bookdown]{pdf_book}` with Gordon Arsenoff's defaults
 }

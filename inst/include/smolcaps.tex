@@ -1,0 +1,4 @@
+% based on https://tex.stackexchange.com/a/201952
+\let\oldhyperlink\hyperlink
+\newcommand{\click}[2]{\oldhyperlink{#1}{\textsc{#2}}}
+\let\hyperlink\click

@@ -1,7 +1,12 @@
 % table commands
 \newcolumntype{d}{{D{.}{.}{-1}}}
 
-\newcommand{\ztab}{\setlength{\tabcolsep}{0pt}} % 2022-10-22: TODO: find and make use of paper's default tabcolsep value
+\def\oldtabcolsep{\tabcolsep}
+\newcommand{\rtab}{\setlength{\tabcolsep}{\oldtabcolsep}}
+
+\newcommand{\mmtab}{\setlength{\tabcolsep}{-4pt}}
+\newcommand{\mtab}{\setlength{\tabcolsep}{-2pt}}
+\newcommand{\ztab}{\setlength{\tabcolsep}{0pt}}
 \newcommand{\ntab}{\setlength{\tabcolsep}{1pt}}
 \newcommand{\ttab}{\setlength{\tabcolsep}{2pt}}
 \newcommand{\utab}{\setlength{\tabcolsep}{6pt}}

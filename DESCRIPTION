@@ -1,7 +1,7 @@
 Package: arsedown
 Type: Package
 Title: Gordon Arsenoff's `rmarkdown` Formats
-Version: 0.2.0
+Version: 0.4.0
 Author: Gordon Arsenoff
 Maintainer: Gordon Arsenoff <arsenoff@princeton.edu>
 Description: Does what it says on the tin.
@@ -12,10 +12,12 @@ Imports:
     bookdown,
     glue,
     here,
+    rlang,
     rmarkdown,
     stringr,
     ymlthis
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
+Roxygem: list(markdown = TRUE)
 Suggests: 
     knitr
 VignetteBuilder: knitr

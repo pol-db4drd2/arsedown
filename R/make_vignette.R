@@ -13,7 +13,12 @@ use_memo_vignette <- function(
   what  = system.file("rmarkdown", "templates", "pdf-memo", "skeleton", "skeleton.Rmd", package = "arsedown"),
   overwrite = FALSE
 ) {
-  fn <- here::here("vignettes", stringr::str_c(name, ".Rmd"))
+
+  dr <- here::here("vignettes", name)
+
+  # fn <- here::here("vignettes", stringr::str_c(name, ".Rmd"))
+  vn <- here::here("vignettes", stringr::str_c(name, ".Rmd"))
+  fn <- here::here(dr,          stringr::str_c(name, ".Rmd"))
 
   if(file.exists(fn)) {
     if(overwrite) {
@@ -29,15 +34,18 @@ use_memo_vignette <- function(
   exe <- here::here(normalizePath(R.home(component = "bin")), "R")
   system(glue::glue("{exe} --quiet --vanilla -e {xpr}"))
 
-  old <- rmarkdown::yaml_front_matter(fn)
+  old <- rmarkdown::yaml_front_matter(vn)
 
-  file.remove(fn)
+  file.remove(vn)
+
+  if(file.exists(dr)) {} else {dir.create(dr)} # 2024-03-19: not above, b/c we don't know if `here::here("vignettes")` exists
 
   noo <- rmarkdown::yaml_front_matter(what)
 
   noo$title    <- old$title
   noo$vignette <- old$vignette
-  noo$vignette <- stringr::str_replace_all(noo$vignette, " ", "\n ")
+  noo$vignette <- stringr::str_replace_all(noo$vignette, " ", "\n ") # TODO 2024-02-29: try the below?
+  # noo$vignette <- stringr::str_replace_all(noo$vignette, " %\\\\", "\n %\\\\")
   noo$vignette <- stringr::str_c(">\n ", noo$vignette)
 
   noo <- sanitize_yaml_quotes(noo)

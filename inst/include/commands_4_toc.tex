@@ -1,4 +1,12 @@
 % toc commands
+\makeatletter
+\renewcommand{\contentsname}{Contents}
+\renewcommand{\tableofcontents}{%
+  \section*{\contentsname}
+  \@starttoc{toc}
+}
+\makeatother
+
 % 2022-10-22: no recollection of what any of these were for
 \newcommand{\eitc}{\etocsetnexttocdepth{1}\etocsettocstyle{}{}\tableofcontents}
 \newcommand{\ejtc}{\etocsetnexttocdepth{2}\etocsettocstyle{}{}\tableofcontents}

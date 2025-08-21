@@ -1,0 +1,157 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage[]{fourier}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[top=0.55in, bottom=0.55in, left=0.65in, right=0.65in]{geometry}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% standard package complement
+\usepackage{dcolumn}
+\usepackage{pdflscape}
+\usepackage{supertabular}
+\usepackage{booktabs}
+\usepackage{multicol}
+\usepackage{nameref}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{etoc}
+\usepackage{stringstrings}
+\usepackage{environ}
+\usepackage[explicit]{titlesec}
+\usepackage[normalem]{ulem}
+% general commands
+\newcommand{\nl}{\newline} % 2022-10-22: how useful was this short command ever? should \clearpage become \cp? or should this go away?
+
+% layout commands
+\newcommand{\blandscape}{\begin{landscape}}
+\newcommand{\elandscape}{\end{landscape}}
+\newcommand{\blimp}{\begin{minipage}{\linewidth}} % not sure when needed
+\newcommand{\elimp}{\end{minipage}}
+\newcommand{\bhp}{\begin{minipage}{0.5\textwidth}} % useful with two-column sections
+\newcommand{\ehp}{\end{minipage}}
+% column commands
+\newcommand{\bmCccc}{\begin{multicols*}{4}}
+\newcommand{\bmCcc}{\begin{multicols*}{3}}
+\newcommand{\bmCc}{\begin{multicols*}{2}}
+\newcommand{\bmcccc}{\begin{multicols}{4}}
+\newcommand{\bmccc}{\begin{multicols}{3}}
+\newcommand{\bmcc}{\begin{multicols}{2}}
+\newcommand{\emc}{\end{multicols}}
+\newcommand{\emC}{\end{multicols*}}
+% table commands
+\newcolumntype{d}{{D{.}{.}{-1}}}
+
+\newcommand{\ztab}{\setlength{\tabcolsep}{0pt}} % 2022-10-22: TODO: find and make use of paper's default tabcolsep value
+\newcommand{\ntab}{\setlength{\tabcolsep}{1pt}}
+\newcommand{\ttab}{\setlength{\tabcolsep}{2pt}}
+\newcommand{\utab}{\setlength{\tabcolsep}{6pt}}
+
+% 2022-10-22: TODO: play with args to footable till it doesn't lose, then break out to its own file to enable it with a pdf_memo arg?
+\newenvironment{footable}[2][0]{\ztab\centering\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}#2}}{\end{tabular*}}
+
+\newcommand{\ltotab}{\renewcommand{\longtable}{\tabular}} % 2022-10-22: these all lose, don't use until improved
+\newcommand{\eltotab}{\renewcommand{\endlongtable}{\endtabular}}
+\newcommand{\longtofoo}{\renewenvironment{longtable}{\ztab\begin{center}\begin{footable}}{\end{footable}\end{center}\utab}} % dont use?
+\newcommand{\ehtobr}{\let\endhead\bottomrule} % always use with \longtofoo
+% toc commands
+% 2022-10-22: no recollection of what any of these were for
+\newcommand{\eitc}{\etocsetnexttocdepth{1}\etocsettocstyle{}{}\tableofcontents}
+\newcommand{\ejtc}{\etocsetnexttocdepth{2}\etocsettocstyle{}{}\tableofcontents}
+\newcommand{\ektc}{\etocsetnexttocdepth{3}\etocsettocstyle{}{}\tableofcontents}
+\newcommand{\eltc}{\etocsetnexttocdepth{4}\etocsettocstyle{}{}\tableofcontents}
+\newcommand{\eptc}{\addtocontents{toc}{\cftpagenumbersoff{section}}}
+\newcommand{\eotc}{\addtocontents{toc}{\cftpagenumbersoff{subsection}}}
+\newcommand{\entc}{\addtocontents{toc}{\cftpagenumbersoff{subsubsection}}}
+\newcommand{\emtc}{\addtocontents{toc}{\cftpagenumbersoff{paragraph}}}
+
+% math commands?
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\B}{\mathrm{B}}
+\newcommand{\V}{\mathrm{Var}}
+\titleformat{\section}{\normalsize\bfseries}{\thesection}{1em}{\uline{#1}}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{#1}
+\titleformat{\subsubsection}{\normalsize\itshape}{\thesubsubsection}{1em}{\uline{#1}}
+\titleformat{\paragraph}[runin]{\normalsize}{\theparagraph}{1em}{\uline{#1}}
+\titleformat{\subparagraph}[runin]{\normalsize\itshape}{\thesubparagraph}{1em}{{#1}.}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Utopia},
+  pdfauthor={Your Name},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={teal},
+  pdfcreator={LaTeX via pandoc}}
+
+% based on https://tex.stackexchange.com/a/201952
+\let\oldhyperlink\hyperlink
+\newcommand{\click}[2]{\oldhyperlink{#1}{\textsc{#2}}}
+\let\hyperlink\click
+\title{Utopia}
+\author{Your Name}
+\date{2024-03-19}
+
+\begin{document}
+\maketitle
+
+In the beginning was the Word, and the Word was with God, and the Word was God. He was in the beginning with God. All things came into being through him, and without him not one thing came into being. What has come into being in him was life, and the life was the light of all people.
+
+The light shines in the darkness, and the darkness did not overcome it. There was a man sent from God, whose name was John. He came as a witness to testify to the light, so that all might believe through him. He himself was not the light, but he came to testify to the light. The true light, which enlightens everyone, was coming into the world. He was in the world, and the world came into being through him; yet the world did not know him. He came to what was his own, and his own people did not accept him. But to all who received him, who believed in his name, he gave power to become children of God, who were born, not of blood or of the will of the flesh or of the will of man, but of God. And the Word became flesh and lived among us, and we have seen his glory, the glory as of a father's only son, full of grace and truth.
+
+(John testified to him and cried out, ``This was he of whom I said, `He who comes after me ranks ahead of me because he was before me.'\,'') From his fullness we have all received, grace upon grace. The law indeed was given through Moses; grace and truth came through Jesus Christ. No one has ever seen God. It is God the only Son, who is close to the Father's heart, who has made him known.
+
+\end{document}
