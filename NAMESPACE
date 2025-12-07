@@ -2,4 +2,5 @@
 
 export(pdf_memo)
 export(space_csl)
+export(use_memo)
 export(use_memo_vignette)
